@@ -92,3 +92,61 @@ nav a:hover {
 .menu-toggle:checked~nav {
     display: flexgit;
 }
+
+@media screen and (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
+    }
+    nav {
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        background-color: white;
+        padding: 10px;
+        position: absolute;
+        top: 70px;
+        left: 0px;
+        font-size: 1.5rem;
+        display: none;
+    }
+}
+
+.fixed {
+    position: fixed;
+    right: 30px;
+    top: 70%;
+    background-color: var(--text-color);
+    height: 60px;
+    width: 60px;
+    border-radius: 50px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: ease 0.5s;
+
+}
+
+.fixed:hover {
+    transform: scale(1.1);
+
+}
+
+.fixed i {
+    color: white;
+    font-size: 2.5rem;
+
+}
+
+@media screen and (max-width:768px) {
+    .fixed {
+        width: 40px;
+        height: 40px;
+
+    }
+
+    .fixed i {
+        font-size: 2rem;
+    }
+}
