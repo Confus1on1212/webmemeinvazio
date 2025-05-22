@@ -1,10 +1,15 @@
 const fileUpload = document.querySelector('#fileUpload')
 let meme = null
 
-fileUpload.addEventListener('click', selectPic())
+fileUpload.addEventListener('change', selectPic)
+
+const btnUpload = document.querySelector('.uploadButton')
+btnUpload.addEventListener('click', UploadMeme);
+
 
 async function selectPic(){
     const file = fileUpload.files[0]
+    console.log(file);
     if(file) {
         meme = file;
         const reader = new FileReader();
@@ -14,6 +19,29 @@ async function selectPic(){
             newMeme.style.backgroundRepeat = 'no-repeat'
         }
         reader.readAsDataURL(file);
+    }
+}
 
+async function UploadMeme() {
+    try {
+        if (meme) {
+            const formData = new FormData;
+            formData.append('meme', meme)
+
+            const response = await fetch('http://127.0.0.1:3000/api/memes/uploadMeme', 
+                {
+                    method: 'POST',
+                    body: formData,
+                    credentials: "include",
+
+                }
+            )
+
+        }
+        else{
+            alert("Valassz ki egy kepet")
+        }
+    } catch (e) {
+        console.log(e);
     }
 }
