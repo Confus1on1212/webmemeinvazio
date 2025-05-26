@@ -1,11 +1,14 @@
 const fileUpload = document.querySelector('#fileUpload')
 let meme = null
+const btnUpload = document.querySelector('.uploadButton')
+
+const iconHome =  document.querySelector('.icon-home')
 
 fileUpload.addEventListener('change', selectPic)
-
-const btnUpload = document.querySelector('.uploadButton')
-btnUpload.addEventListener('click', UploadMeme);
-
+btnUpload.addEventListener('click', uploadMeme);
+iconHome.addEventListener('click', () => {
+    window.location.href ="../html/home.html"
+})
 
 async function selectPic(){
     const file = fileUpload.files[0]
@@ -22,8 +25,9 @@ async function selectPic(){
     }
 }
 
-async function UploadMeme() {
+async function uploadMeme() {
     try {
+        console.log(meme);
         if (meme) {
             const formData = new FormData;
             formData.append('meme', meme)

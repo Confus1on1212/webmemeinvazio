@@ -58,9 +58,9 @@ nav a:hover {
     transform: scale(1.1);
 }
 
-.icon-home {
+/* .icon-home {
     background-color: silver;
-}
+} */
 
 .icon-logout {
     background-color: red;
